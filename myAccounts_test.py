@@ -15,7 +15,7 @@ class TestAccounts(unittest.TestCase):
     This method does clean up after each test case has run.
     '''
     Accounts.accounts_list = []
-    
+
   def setUp(self):
     '''
     Set up method to run before each test cases.
@@ -46,5 +46,17 @@ class TestAccounts(unittest.TestCase):
     test_myaccounts = Accounts("Twitter","Jammy","jam#jam")
     test_myaccounts.save_account()
     self.assertEqual(len(Accounts.accounts_list),2)
+
+  def test_delete_accounts(self):
+    '''
+    Test case for removing unwanted accounts from accounts-list
+    '''
+    self.new_myaccounts.save_account()
+    test_myaccounts = Accounts("Twitter","Jammy","jam#jam")
+    test_myaccounts.save_account()
+    self.new_myaccounts.delete_account()
+    self.assertEqual(len(Accounts.accounts_list),1)
+
+
 if __name__ == '__main__':
   unittest.main()
