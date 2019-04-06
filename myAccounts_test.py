@@ -9,6 +9,13 @@ class TestAccounts(unittest.TestCase):
   Args:
     unittest.TestCase: TestCase class that helps in creating test cases
   '''
+
+  def tearDown(self):
+    '''
+    This method does clean up after each test case has run.
+    '''
+    Accounts.accounts_list = []
+    
   def setUp(self):
     '''
     Set up method to run before each test cases.
