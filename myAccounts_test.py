@@ -20,9 +20,9 @@ class TestAccounts(unittest.TestCase):
     test_init test case to test if the object is initialized properly
     '''
 
-    self.assertEqual(self.new_accounts.account_name,"LinkedIn")
-    self.assertEqual(self.new_accounts.username, "Aisa")
-    self.assertEqual(self.new_accounts.password, "jem#jem")
+    self.assertEqual(self.new_myaccounts.account_name,"LinkedIn")
+    self.assertEqual(self.new_myaccounts.username, "Aisa")
+    self.assertEqual(self.new_myaccounts.password, "jem#jem")
 
   def test_save_account(self):
     '''
@@ -30,5 +30,14 @@ class TestAccounts(unittest.TestCase):
     '''
     self.new_myaccounts.save_account()
     self.assertEqual(len(Accounts.accounts_list),1)
+
+  def test_multiple_accounts(self):
+    '''
+    Test case to check if we can save multiple contacts
+    '''
+    self.new_myaccounts.save_account()
+    test_myaccounts = Accounts("Twitter","Jammy","jam#jam")
+    test_myaccounts.save_account()
+    self.assertEqual(len(Accounts.accounts_list),2)
 if __name__ == '__main__':
   unittest.main()
