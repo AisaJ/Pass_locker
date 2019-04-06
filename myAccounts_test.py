@@ -1,5 +1,5 @@
 import unittest #importing the unittest module
-from accounts import Accounts #importing accounts class
+from myAccounts import Accounts #importing accounts class
 
 class TestAccounts(unittest.TestCase):
 
@@ -13,7 +13,7 @@ class TestAccounts(unittest.TestCase):
     '''
     Set up method to run before each test cases.
     '''
-    self.new_accounts = Accounts("LinkedIn","Aisa","jem#jem") #create account object
+    self.new_myaccounts = Accounts("LinkedIn","Aisa","jem#jem") #create account object
 
   def test_init(self):
     '''
@@ -24,5 +24,11 @@ class TestAccounts(unittest.TestCase):
     self.assertEqual(self.new_accounts.username, "Aisa")
     self.assertEqual(self.new_accounts.password, "jem#jem")
 
+  def test_save_account(self):
+    '''
+    Test case to test if the accounts object is saved in the myaccounts list
+    '''
+    self.new_myaccounts.save_account()
+    self.assertEqual(len(Accounts.accounts_list),1)
 if __name__ == '__main__':
   unittest.main()
