@@ -42,6 +42,15 @@ class Accounts:
       if accounts.account_name == name:
         return accounts
         
+  @classmethod
+  def account_exists(cls,name):
+    '''
+    Method that checks if account exists from the saved accounts
+    '''
+    for accounts in cls.accounts_list:
+      if accounts.account_name == name:
+        return True
+    return False
 
     
 

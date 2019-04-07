@@ -76,12 +76,13 @@ class TestAccounts(unittest.TestCase):
 
   def test_account_exists(self):
     '''
-    Test case to check if an account exists
+    test to check if we can return a Boolean  if we cannot find the contact.
     '''
     self.new_myaccounts.save_account()
     test_myaccounts = Accounts("Twitter","jammy","jam#jam")
     test_myaccounts.save_account()
-    account_exists = Accounts.account.exist("name")
+    account_exists = Accounts.account_exists("Twitter")
+
     self.assertTrue(account_exists)
     
 
