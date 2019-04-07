@@ -1,6 +1,7 @@
 import unittest #importing the unittest module
 from myAccounts import Accounts #importing accounts class
 
+
 class TestAccounts(unittest.TestCase):
 
   '''
@@ -56,6 +57,12 @@ class TestAccounts(unittest.TestCase):
     test_myaccounts.save_account()
     self.new_myaccounts.delete_account()
     self.assertEqual(len(Accounts.accounts_list),1)
+
+  def test_display_all_accounts(self):
+      '''
+      method that returns a list of all contacts saved
+      '''
+      self.assertEqual(Accounts.test_display_all_accounts(),Accounts.accounts_list)
 
 
 if __name__ == '__main__':
