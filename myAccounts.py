@@ -1,4 +1,3 @@
-import pyperclip
 
 class Accounts:
   '''
