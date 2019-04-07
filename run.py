@@ -50,6 +50,7 @@ def generatePassword(num):
 
 def main():
   print("Hi there, welcome to password-Loc. Please create an account")
+  print('\n')
 
   loc_username = input("Enter Password-Loc username: ")
   loc_password = input("Type in your password: ")
@@ -61,7 +62,7 @@ def main():
 
   while password_confrim == loc_password:
 
-    print("Awesome! Select from the short-code options to begin: ca - create new account details, ac - Add new account details, fa - find account details, da - display accounts saved, da - delete an account record")
+    print("Awesome! Select from the short-code options to begin: ca - create new account details, ac - Add new account details, fa - find account details, da - display accounts saved, dl - delete an account record, lo - log out of Password-Loc account")
 
     option = input().lower()
 
@@ -98,9 +99,51 @@ def main():
       print(f"New Account {account} added")
       print ('\n')  
 
-    
+    elif option == "da":
+      if display_accounts():
+          print("These are the accounts saved currently.")
+          print('\n')
 
+          for account in display_accounts():
+            print(f"{account.account_name} {account.username} .....{account.password}")
 
+            print('\n')
+      else:
+        print('\n')
+        print("No accounts added so far!")
+        print('\n')
+
+    elif short_code == 'fa':
+      print("Enter the account name you wish to search for: ")
+
+      search_name = input()
+      if check_existing_contacts(search_name):
+        search_account = find_account(search_name)
+        print(f"{search_account.account_name} {search_account.username}")
+        print('-' * 20)
+
+        print(f"Account's password.......{search_account.password}")
+        
+      else:
+        print("That account not found!")
+
+    elif short_code == 'dl':
+      print("Enter the account name you wish to delete: ")
+
+      search_name = input()
+      if check_existing_contacts(search_name):
+        search_account = find_account(search_name)
+        delete_accounts(search_account)
+        print('-' * 20)
+
+        print(f"Account.......{search_account.account_name} has been deleted.")
+
+    elif short_code == "lo":
+      print("Logging out .......")
+      break
+    else:
+
+      print("Wrong short code option! Refer to the list provided and retype.")   
 
 if __name__ == '__main__':
   main()
