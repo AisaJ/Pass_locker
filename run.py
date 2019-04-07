@@ -1,5 +1,7 @@
 #!/usr/bin/env python3.6
 from myAccounts import Accounts
+git
+
 
 def add_account(account,usr_name,a_password):
   '''
@@ -55,8 +57,41 @@ def main():
 
     option = input().lower()
 
-    if option == 'ca':
-      print("Account name")
+    if option == 'ac':
+      print("Add Account details")
+      print("-"*10)
+
+      print("Account name: ")
+      account = input()
+      print("Account's username: ")
+      usr_name = input()
+      print("Acount's password")
+      a_password = input()
+
+      save_accounts(add_account(account,usr_name,a_password)) # add and save new account.
+      print ('\n')
+      print(f"New Account {account} added")
+      print ('\n')  
+
+    elif option == 'ca':
+      print("New Account details")
+      print("-"*10)
+
+      print("Account name: ")
+      account = input()
+      print("Account's username: ")
+      usr_name = input()
+      print("Acount's password")
+      a_password = input()
+
+      save_accounts(add_account(account,usr_name,a_password)) # add and save new account.
+      print ('\n')
+      print(f"New Account {account} added")
+      print ('\n')  
+
+    
+
+
 
 if __name__ == '__main__':
   main()
