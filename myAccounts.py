@@ -21,6 +21,13 @@ class Accounts:
     '''
     Accounts.accounts_list.remove(self)
 
+  @classmethod
+  def display_accounts(cls):
+    '''
+    method that returns the account list
+    '''
+    return cls.accounts_list
+
     
 
 

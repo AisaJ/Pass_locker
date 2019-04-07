@@ -60,7 +60,7 @@ class TestAccounts(unittest.TestCase):
 
   def test_display_all_accounts(self):
       '''
-      method that returns a list of all contacts saved
+      method that returns a list of all accounts saved
       '''
       self.assertEqual(Accounts.test_display_all_accounts(),Accounts.accounts_list)
 
