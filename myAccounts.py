@@ -41,8 +41,7 @@ class Accounts:
     for accounts in cls.accounts_list:
       if accounts.account_name == name:
         return accounts
-   
-
+        
 
     
 

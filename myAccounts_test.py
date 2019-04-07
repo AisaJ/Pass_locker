@@ -74,6 +74,16 @@ class TestAccounts(unittest.TestCase):
     found_account = Accounts.find_by_name("Twitter")
     self.assertEqual(found_account.password,test_myaccounts.password)
 
+  def test_account_exists(self):
+    '''
+    Test case to check if an account exists
+    '''
+    self.new_myaccounts.save_account()
+    test_myaccounts = Accounts("Twitter","jammy","jam#jam")
+    test_myaccounts.save_account()
+    account_exists = Accounts.account.exist("name")
+    self.assertTrue(account_exists)
+    
 
 if __name__ == '__main__':
   unittest.main()
