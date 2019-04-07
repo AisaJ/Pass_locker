@@ -64,6 +64,16 @@ class TestAccounts(unittest.TestCase):
       '''
       self.assertEqual(Accounts.test_display_all_accounts(),Accounts.accounts_list)
 
+  def test_find_account_by_name(self):
+    '''
+    Test case to check if we can find account details by account name and display the information
+    '''
+    self.new_myaccounts.save_account()
+    test_myaccounts = Accounts("Twitter","jammy","jam#jam")
+    test_myaccounts.save_account()
+    found_account = Accounts.find_by_name("Twitter")
+    self.assertEqual(found_account.password,test_myaccounts.password)
+
 
 if __name__ == '__main__':
   unittest.main()
