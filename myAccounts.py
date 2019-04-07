@@ -1,3 +1,5 @@
+import pyperclip
+
 class Accounts:
   '''
   Class that generates new instances of accounts
@@ -51,6 +53,14 @@ class Accounts:
       if accounts.account_name == name:
         return True
     return False
+
+  @classmethod
+  def copy_credentials(cls,name):
+    '''
+    Method that copies username and password to clipboard
+    '''
+    account_found = Accounts.find_by_name(name)
+    pyperclip.copy(account_found.username,acount_found.password)
 
     
 
