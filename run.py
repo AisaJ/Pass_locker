@@ -133,10 +133,16 @@ def main():
       search_name = input()
       if check_existing_contacts(search_name):
         search_account = find_account(search_name)
-        delete_accounts(search_account)
-        print('-' * 20)
+        print(f"You prompted to delete {search_account.account_name} account. \n Continue? [y/n]")
 
-        print(f"Account.......{search_account.account_name} has been deleted.")
+        confirm = input()
+        if confirm == 'y':
+          delete_accounts(search_account)
+          print('-' * 20)
+
+          print(f"Account.......{search_account.account_name} has been deleted.")
+        else:
+          print("Action Aborted!")
 
     elif short_code == "lo":
       print("Logging out .......")
