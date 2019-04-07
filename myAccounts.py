@@ -22,11 +22,27 @@ class Accounts:
     Accounts.accounts_list.remove(self)
 
   @classmethod
-  def display_accounts(cls):
+  def display_all_accounts(cls):
     '''
     method that returns the account list
     '''
     return cls.accounts_list
+
+  @classmethod
+  def find_by_name(cls,name):
+    '''
+    method that takes in account-name and returns password that match the account
+    Args:
+      account-name
+    Returns:
+      the password for specified account
+    '''
+
+    for accounts in cls.accounts_list:
+      if accounts.account_name == name:
+        return accounts
+   
+
 
     
 
