@@ -37,4 +37,3 @@ def display_accounts():
   Function that returns all saved 
   '''
   return Accounts.display_all_accounts()
-

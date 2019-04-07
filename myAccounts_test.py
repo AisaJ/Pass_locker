@@ -21,7 +21,7 @@ class TestAccounts(unittest.TestCase):
     '''
     Set up method to run before each test cases.
     '''
-    self.new_myaccounts = Accounts("LinkedIn","Aisa","jem#jem") #create account object
+    self.new_myaccounts = Accounts("LinkedIn","Jammy","jem#jem") #create account object
 
   def test_init(self):
     '''
@@ -29,7 +29,7 @@ class TestAccounts(unittest.TestCase):
     '''
 
     self.assertEqual(self.new_myaccounts.account_name,"LinkedIn")
-    self.assertEqual(self.new_myaccounts.username, "Aisa")
+    self.assertEqual(self.new_myaccounts.username, "Jammy")
     self.assertEqual(self.new_myaccounts.password, "jem#jem")
 
   def test_save_account(self):
@@ -69,7 +69,7 @@ class TestAccounts(unittest.TestCase):
     Test case to check if we can find account details by account name and display the information
     '''
     self.new_myaccounts.save_account()
-    test_myaccounts = Accounts("Twitter","jammy","jam#jam")
+    test_myaccounts = Accounts("Twitter","Jammy","jam#jam")
     test_myaccounts.save_account()
     found_account = Accounts.find_by_name("Twitter")
     self.assertEqual(found_account.password,test_myaccounts.password)
@@ -79,11 +79,19 @@ class TestAccounts(unittest.TestCase):
     test to check if we can return a Boolean  if we cannot find the contact.
     '''
     self.new_myaccounts.save_account()
-    test_myaccounts = Accounts("Twitter","jammy","jam#jam")
+    test_myaccounts = Accounts("Twitter","Jammy","jam#jam")
     test_myaccounts.save_account()
     account_exists = Accounts.account_exists("Twitter")
 
     self.assertTrue(account_exists)
+
+  def test_copy_credentilas(self):
+    '''Test case to confirm we are copying username and password from account found
+    '''
+    self.new_myaccounts.save_account()
+    Accounts.copy_username("jammy")
+    Accounts.copy_password("jam#jam")
+    self.assertEqual(self.new_myaccounts.username,self.new_myaccounts.password,pyperclip.paste())
     
 
 if __name__ == '__main__':
