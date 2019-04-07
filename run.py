@@ -1,7 +1,6 @@
 #!/usr/bin/env python3.6
 from myAccounts import Accounts
-git
-
+import string, random 
 
 def add_account(account,usr_name,a_password):
   '''
@@ -40,6 +39,15 @@ def display_accounts():
   '''
   return Accounts.display_all_accounts()
 
+def generatePassword(num):
+  password = ' '
+
+  for rndm in range(num):
+    selected = random.randint(0,94)
+    password += string.printable[selected]
+
+  return password
+
 def main():
   print("Hi there, welcome to password-Loc. Please create an account")
 
@@ -49,7 +57,7 @@ def main():
   print(f"Hello {loc_username}. Please Re-Type in your password to continue")
   print('\n')
 
-  password_confrim = input("Re-type password")
+  password_confrim = input("Re-type password: ")
 
   while password_confrim == loc_password:
 
@@ -82,7 +90,8 @@ def main():
       print("Account's username: ")
       usr_name = input()
       print("Acount's password")
-      a_password = input()
+      a_password = generatePassword(12)
+      print(f"Your a_password will be {a_password}")
 
       save_accounts(add_account(account,usr_name,a_password)) # add and save new account.
       print ('\n')
