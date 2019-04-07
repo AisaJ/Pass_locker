@@ -62,7 +62,7 @@ def main():
 
   while password_confrim == loc_password:
 
-    print("Awesome! Select from the short-code options to begin: ca - create new account details, ac - Add new account details, fa - find account details, da - display accounts saved, dl - delete an account record, lo - log out of Password-Loc account")
+    print("Awesome! Select from the short-code options to action: ca - create new account details, ac - Add new account details, fa - find account details, da - display accounts saved, dl - delete an account record, lo - log out of Password-Loc account")
 
     option = input().lower()
 
@@ -92,7 +92,9 @@ def main():
       usr_name = input()
       print("Acount's password")
       a_password = generatePassword(12)
-      print(f"Your a_password will be {a_password}")
+      print(f"Your account_password will be {a_password}")
+      length_of_password = len(a_password)
+      print(f"Password is {length_of_password} characters long.")
 
       save_accounts(add_account(account,usr_name,a_password)) # add and save new account.
       print ('\n')
