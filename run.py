@@ -148,7 +148,7 @@ def main():
       print("Enter the account name you wish to delete: ")
 
       search_name = input()
-      if check_existing_contacts(search_name):
+      if view_existing_accounts(search_name):
         search_account = find_account(search_name)
         print(f"You prompted to delete {search_account.account_name} account. \n Continue? [y/n]")
 
