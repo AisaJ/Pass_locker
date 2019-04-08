@@ -115,7 +115,7 @@ def main():
         print("No accounts added so far!")
         print('\n')
 
-    elif short_code == 'fa':
+    elif option == 'fa':
       print("Enter the account name you wish to search for: ")
 
       search_name = input()
@@ -129,7 +129,7 @@ def main():
       else:
         print("That account not found!")
 
-    elif short_code == 'dl':
+    elif option == 'dl':
       print("Enter the account name you wish to delete: ")
 
       search_name = input()
@@ -146,7 +146,7 @@ def main():
         else:
           print("Action Aborted!")
 
-    elif short_code == "lo":
+    elif option == "lo":
       print("Logging out .......")
       break
     else:
