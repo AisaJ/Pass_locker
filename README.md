@@ -8,8 +8,8 @@ This is a terminal application in which allows users to save their several opene
 * Ensure you have a github account
 * On my github repositories, select project name (Pass_locker)
 * Clone the project
-* On the command line c
-* Lastly ng serve on cli to view application
+* On the command line run chmod +x run.py
+* run the ./run.py command to execute file
 ## Behavior Driven Development (BDD)
 | General Behavior | Input    | Output   |
 | :------------- | :------------- | :------------- |
