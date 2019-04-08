@@ -1,5 +1,6 @@
 import unittest #importing the unittest module
 from myAccounts import Accounts #importing accounts class
+from users import Users 
 import pyperclip
 
 
@@ -17,12 +18,14 @@ class TestAccounts(unittest.TestCase):
     This method does clean up after each test case has run.
     '''
     Accounts.accounts_list = []
+    Users.usersList = []
 
   def setUp(self):
     '''
     Set up method to run before each test cases.
     '''
     self.new_myaccounts = Accounts("LinkedIn","Jammy","jem#jem") #create account object
+    self.new_user = Users("Jemila","fuaad")#create user object
 
   def test_init(self):
     '''
@@ -32,6 +35,9 @@ class TestAccounts(unittest.TestCase):
     self.assertEqual(self.new_myaccounts.account_name,"LinkedIn")
     self.assertEqual(self.new_myaccounts.username, "Jammy")
     self.assertEqual(self.new_myaccounts.password, "jem#jem")
+    self.assertEqual(self.new_user.loc_username, "Jemila")
+    self.assertEqual(self.new_user.loc_password, "fuaad")
+
 
   def test_save_account(self):
     '''
@@ -86,13 +92,21 @@ class TestAccounts(unittest.TestCase):
 
     self.assertTrue(account_exists)
 
-  def test_copy_credentilas(self):
-    '''Test case to confirm we are copying username and password from account found
+  # def test_copy_credentilas(self):
+  #   '''Test case to confirm we are copying username and password from account found
+  #   '''
+  #   self.new_myaccounts.save_account()
+  #   Accounts.username("jammy")
+  #   Accounts.password("jam#jam")
+  #   self.assertEqual(self.new_myaccounts.username,self.new_myaccounts.password,pyperclip.paste())
+
+  def test_save_users(self):
     '''
-    self.new_myaccounts.save_account()
-    Accounts.copy_username("jammy")
-    Accounts.copy_password("jam#jam")
-    self.assertEqual(self.new_myaccounts.username,self.new_myaccounts.password,pyperclip.paste())
+    Test case to confirm if users are being added to the users list
+    '''
+    self.new_user.save_users()
+    self.assertEqual(len(Users.usersList),1)
+    
     
 
 if __name__ == '__main__':

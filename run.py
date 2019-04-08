@@ -48,6 +48,19 @@ def generatePassword(num):
 
   return password
 
+def create_locAccount(username,password):
+  '''
+  Function to create appliction login account
+  '''
+  new_user = Users(username,password)
+  return new_user
+
+def save_user(user):
+  '''
+  Saving user
+  '''
+  user.save_users()
+
 def main():
   print("Hi there, welcome to password-Loc. Please create an account")
   print('\n')
@@ -61,6 +74,7 @@ def main():
   password_confrim = input("Re-type password: ")
 
   while password_confrim == loc_password:
+    save_user(create_locAccount(loc_username,loc_password))
 
     print("Awesome! Select from the short-code options to action: ca - create new account details, ac - Add new account details, fa - find account details, da - display accounts saved, dl - delete an account record, lo - log out of Password-Loc account")
 
