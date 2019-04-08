@@ -1,6 +1,7 @@
 #!/usr/bin/env python3.6
 from myAccounts import Accounts
 import string, random 
+from users import Users
 
 def add_account(account,usr_name,a_password):
   '''
